@@ -45,9 +45,9 @@ class Chapter(TimeStampedDocument):
     }
 
 
-class User(db.EmbeddedDocument, TimeStampedDocument):
+class User(db.EmbeddedDocument):
     name = db.StringField(max_length=100, required=True)
-    email = db.EmailField(required=True, unique=True)
+    email = db.EmailField(required=True)
     active = db.BooleanField(default=True)
 
     def __unicode__(self):
@@ -60,7 +60,8 @@ class User(db.EmbeddedDocument, TimeStampedDocument):
 
 class Comment(TimeStampedDocument):
     parent_post = db.ReferenceField(
-        Post, reverse_delete_rule=db.CASCADE    # delete all the Comments if a Post is deleted
+        Post, reverse_delete_rule=db.CASCADE,    # delete all the Comments if a Post is deleted
+        required=True
     )
     parent_comment = db.ReferenceField('self')
     author = db.EmbeddedDocumentField(User)
