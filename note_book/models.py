@@ -11,22 +11,6 @@ class TimeStampedDocument(db.Document):
     }
 
 
-class Chapter(TimeStampedDocument):
-    title = db.StringField(max_length=255, required=True)
-    order = db.IntField()
-    active = db.BooleanField(default=True)
-    posts = db.ListField(
-        db.ReferenceField(Post, reverse_delete_rule=db.PULL)    # remove the references to deleted Post from this list
-    )
-
-    def __unicode__(self):
-        return self.title
-
-    meta = {
-        'ordering': ['order']
-    }
-
-
 class Post(TimeStampedDocument):
     title = db.StringField(max_length=255, required=True)
     slug = db.StringField(max_length=255, required=True, unique=True)
@@ -45,6 +29,35 @@ class Post(TimeStampedDocument):
     }
 
 
+class Chapter(TimeStampedDocument):
+    title = db.StringField(max_length=255, required=True)
+    order = db.IntField()
+    active = db.BooleanField(default=True)
+    posts = db.ListField(
+        db.ReferenceField(Post, reverse_delete_rule=db.PULL)   # remove the references to deleted Post from this list
+    )
+
+    def __unicode__(self):
+        return self.title
+
+    meta = {
+        'ordering': ['order']
+    }
+
+
+class User(db.EmbeddedDocument, TimeStampedDocument):
+    name = db.StringField(max_length=100, required=True)
+    email = db.EmailField(required=True, unique=True)
+    active = db.BooleanField(default=True)
+
+    def __unicode__(self):
+        return "{name} ({email})".format(name=self.name, email=self.email)
+
+    meta = {
+        'indexes': ['email'],
+    }
+
+
 class Comment(TimeStampedDocument):
     parent_post = db.ReferenceField(
         Post, reverse_delete_rule=db.CASCADE    # delete all the Comments if a Post is deleted
@@ -59,17 +72,4 @@ class Comment(TimeStampedDocument):
     meta = {
         'indexes': ['parent_comment'],
         'ordering': ['-created']
-    }
-
-
-class User(db.EmbeddedDocument, TimeStampedDocument):
-    name = db.StringField(max_length=100, required=True)
-    email = db.EmailField(required=True, unique=True)
-    active = db.BooleanField(default=True)
-
-    def __unicode__(self):
-        return "{name} ({email})".format(name=self.name, email=self.email)
-
-    meta = {
-        'indexes': ['email'],
     }
