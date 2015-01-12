@@ -15,6 +15,7 @@ class Post(TimeStampedDocument):
     title = db.StringField(max_length=255, required=True)
     slug = db.StringField(max_length=255, required=True, unique=True)
     active = db.BooleanField(default=True)
+    enable_comments = db.BooleanField(default=True)
     body = db.StringField()
     tags = db.ListField(
         db.StringField(max_length=100)
