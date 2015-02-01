@@ -5,3 +5,5 @@ MONGODB_SETTINGS = {
     'username': 'nb_admin',
     'password': '12345',
 }
+
+ASSETS_DEBUG = DEBUG

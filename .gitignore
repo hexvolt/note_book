@@ -1,4 +1,7 @@
 *.py[cod]
 *.log
+*.css
+
 .idea/
 instance/
+.webassets-cache/

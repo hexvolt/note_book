@@ -1,1 +1,3 @@
 DEBUG = False
+
+ASSETS_DEBUG = DEBUG
