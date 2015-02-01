@@ -2,20 +2,67 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
-    {% assets "libs_js" %}
-        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Note Book</title>
+
+    {% assets "libs_css" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}" />
     {% endassets %}
-    {% assets "main_js" %}
-        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    {% endassets %}
+
     {% assets "main_css" %}
         <link rel="stylesheet" href="{{ ASSET_URL }}" />
     {% endassets %}
 </head>
 <body>
     {% block body %}
-        "Hello world"
+    <div>
+        <div class="topbar">
+
+        </div>
+        <nav class="sidebar test2">
+            <ul>
+                <li>TITLE PAGE<span class="label label-default">Default</span></li>
+                <li>NOTE BOOK</li>
+                <li>BLOG</li>
+                <li>PROJECTS</li>
+                <li>ABOUT ME</li>
+            </ul>
+        </nav>
+        <main class="main test1">
+            <article>
+                <h2>Article</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
+            </article>
+            <article>
+                <h2>Article</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
+            </article>
+            <article>
+                <h2>Article</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
+            </article>
+            <article>
+                <h2>Article</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
+            </article>
+        </main>
+    </div>
+
+    {% endblock %}
+    <footer>
+
+    </footer>
+    {% block scripts %}
+        {% assets "libs_js" %}
+            <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+        {% endassets %}
+        {% assets "main_js" %}
+            <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+        {% endassets %}
     {% endblock %}
 </body>
 </html>
