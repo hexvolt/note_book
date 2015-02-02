@@ -1,32 +1,64 @@
+@import "variables.less";
+
 body {
   height: 100%;
   margin: 0;
+  margin-bottom: @topbar-height;
 }
 
-.sidebar {
-  width: 200px;
-  height: 100%;
+.topbar {
+  background-color: @topbar-background-color;
+  height: @topbar-height;
   position: fixed;
-  right: 0;
-  background-color: rgba(210, 210, 210, 0.5);
+  width: 100%;
 }
 
-.main {
-  padding-right: 210px;
+.wrapper {
 
+  display: table-row;
 
-  article {
-    width: 50%;
-    margin: 0 auto;
-    border: 1px solid gray;
-    min-width: 500px;
+  .main {
+    display: table-cell;
+    padding-top: @topbar-height;
+
+    article {
+      width: 50%;
+      margin: 0 auto;
+      border: 1px solid gray;
+      min-width: 500px;
+    }
+  }
+
+  .sidebar {
+    padding-top: @topbar-height;
+    display: table-cell;
+    width: @sidebar-width;
+    right: 0;
+    background-color: rgba(210, 210, 210, 0.5);
+
+    .nav-menu {
+      position: fixed;
+    }
+
+    button {
+      display: none;
+    }
   }
 }
 
-.test1 {
-  border: 1px solid red;
+
+
+
+@media (max-width: 991px) {
+  .sidebar {
+    background-color: red;
+    position: static;
+
+    button {
+      display: block;
+    }
+  }
 }
 
-.test2 {
-  border: 1px solid green;
-}
+
+

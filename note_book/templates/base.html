@@ -5,29 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Note Book</title>
 
-    {% assets "libs_css" %}
-        <link rel="stylesheet" href="{{ ASSET_URL }}" />
-    {% endassets %}
-
     {% assets "main_css" %}
         <link rel="stylesheet" href="{{ ASSET_URL }}" />
     {% endassets %}
 </head>
 <body>
-    {% block body %}
-    <div>
-        <div class="topbar">
+    <div class="topbar">
+        Search...
+    </div>
 
-        </div>
-        <nav class="sidebar test2">
-            <ul>
-                <li>TITLE PAGE<span class="label label-default">Default</span></li>
-                <li>NOTE BOOK</li>
-                <li>BLOG</li>
-                <li>PROJECTS</li>
-                <li>ABOUT ME</li>
-            </ul>
-        </nav>
+    <div class="wrapper">
+
         <main class="main test1">
             <article>
                 <h2>Article</h2>
@@ -50,12 +38,30 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
             </article>
         </main>
+        <nav class="sidebar test2">
+            <ul class="nav-menu">
+                <li>TITLE PAGE</li>
+                <li>NOTE BOOK</li>
+                <li>BLOG</li>
+                <li>PROJECTS</li>
+                <li>ABOUT ME</li>
+            </ul>
+            <button class="btn" data-toggle="collapse" data-target=".sidebar ul">
+                TITLE PAGE
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </nav>
     </div>
 
-    {% endblock %}
-    <footer>
+    <div class="clearfix"></div>
 
+    <footer>
+        copyright 2015
     </footer>
+
     {% block scripts %}
         {% assets "libs_js" %}
             <script type="text/javascript" src="{{ ASSET_URL }}"></script>
