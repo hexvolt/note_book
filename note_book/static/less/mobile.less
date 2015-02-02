@@ -1,0 +1,26 @@
+@import "variables.less";
+
+@media (max-width: @mobile-threshold) {
+  .main {
+    display: block;
+
+    article {
+      width: 95%;
+      min-width: inherit;
+    }
+  }
+
+  .topbar {
+
+  }
+
+  .sidebar {
+    display: none;
+    position: absolute;
+    top: @topbar-height;
+  }
+
+  .nav-menu {
+    position: static !important;
+  }
+}

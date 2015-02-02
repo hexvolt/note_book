@@ -16,6 +16,7 @@ bundles = {
         'less/variables.less',
         'less/utils.less',
         'less/base.less',
+        'less/mobile.less',
         output='css/main.min.css',
         filters='less'
     ),
