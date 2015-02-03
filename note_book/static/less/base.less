@@ -3,13 +3,34 @@
 html, body {
   height: 100%;
   margin: 0;
+  color: @font-color;
+}
+
+h2 {
+  margin: 0 0 13px 0;
+}
+
+p {
+  margin: 10px 0;
 }
 
 .topbar {
-  background-color: @topbar-background-color;
+  background-color: @topbar-bg-color;
+  border-bottom: 1px solid @sidebar-border-color;
   height: @topbar-height;
   position: fixed;
   width: 100%;
+  text-align: center;
+
+  #search-form input[name=q] {
+    width: @search-width;
+    height: @search-height;
+    font-size: @search-font-size;
+    border: 1px solid lightgray;
+    border-radius: @search-border-radius;
+    margin: ((@topbar-height - @search-height) / 2 - 1px) 0;
+    padding: 0 @search-border-radius;
+  }
 }
 
 .wrapper {
@@ -19,6 +40,7 @@ html, body {
 }
 
 .main {
+  background-color: @timeline-bg-color;
   display: table-cell;
   padding: (@timeline-padding + @topbar-height) @timeline-padding;
 
@@ -27,12 +49,13 @@ html, body {
     float: right;
     min-width: 760px;
     margin-bottom: @timeline-padding;
+    padding: @article-padding;
     width: 60%;
   }
 }
 
 .sidebar {
-  background-color: @sidebar-background-color;
+  background-color: @sidebar-bg-color;
   border-left: 1px solid @sidebar-border-color;
   display: table-cell;
   padding-top: @topbar-height;
@@ -41,6 +64,36 @@ html, body {
 
   .nav-menu {
     position: fixed;
+    list-style-type: none;
+    padding: 0;
+    margin: @timeline-padding 0;
+
+    li {
+      a {
+        border: 1px solid lighten(@sidebar-border-color, 50%);
+        border-left-color: @sidebar-border-color;
+        min-width: 150px;
+        display: block;
+        text-decoration: none;
+        padding: @navlink-v-padding @timeline-padding;
+        margin-left: -1px;
+        margin-bottom: -1px;
+
+        &:hover {
+          background-color: @navlink-bg-color-hover;
+        }
+      }
+
+      &.active a {
+        border-color: @sidebar-border-color;
+        border-left-color: @timeline-bg-color;
+        background-color: @timeline-bg-color;
+      }
+
+      &.active + li > a {
+        border-top-color: @sidebar-border-color;
+      }
+    }
   }
 
   button {
