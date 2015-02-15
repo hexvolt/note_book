@@ -9,6 +9,7 @@ bundles = {
     ),
     'main_js': Bundle(
         'js/base.js',
+        'js/app.js',
         filters='yui_js',
         output='js/main.min.js',
     ),

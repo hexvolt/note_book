@@ -5,12 +5,12 @@ run:
 	python run.py
 
 save_init_dump:
-	@read -p "DB username: " user; \
-	read -p "DB password: " pwd; \
+	@read -p "Mongo username: " user; \
+	read -p "Mongo password: " pwd; \
 	mongodump -d $(DB_NAME) -o $(DB_INIT_DUMP_FOLDER) -u $$user -p $$pwd
 
 load_init_dump:
-	@read -p "DB username: " user; \
-	read -p "DB password: " pwd; \
+	@read -p "Mongo username: " user; \
+	read -p "Mongo password: " pwd; \
 	cd $(DB_INIT_DUMP_FOLDER); \
 	mongorestore $(DB_NAME) -u $$user -p $$pwd
