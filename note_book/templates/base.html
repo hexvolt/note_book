@@ -43,11 +43,15 @@
         </main>
         <nav class="sidebar">
             <ul class="nav-menu">
-                <li><a href="#">TITLE PAGE</a></li>
-                <li class="active"><a href="#">NOTE BOOK</a></li>
-                <li><a href="#">BLOG</a></li>
-                <li><a href="#">PROJECTS</a></li>
-                <li><a href="#">ABOUT ME</a></li>
+                {% for chapter in chapters %}
+                    <li><a href="#">{{ chapter.title | upper }}</a></li>
+                {% endfor %}
+
+{#                <li><a href="#">TITLE PAGE</a></li>#}
+{#                <li class="active"><a href="#">NOTE BOOK</a></li>#}
+{#                <li><a href="#">BLOG</a></li>#}
+{#                <li><a href="#">PROJECTS</a></li>#}
+{#                <li><a href="#">ABOUT ME</a></li>#}
             </ul>
         </nav>
     </div>

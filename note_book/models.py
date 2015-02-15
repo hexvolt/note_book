@@ -34,8 +34,9 @@ class Chapter(TimeStampedDocument):
     title = db.StringField(max_length=255, required=True)
     order = db.IntField()
     active = db.BooleanField(default=True)
+    # PULL for removing the references to deleted Post from this list
     posts = db.ListField(
-        db.ReferenceField(Post, reverse_delete_rule=db.PULL)   # remove the references to deleted Post from this list
+        db.ReferenceField(Post, reverse_delete_rule=db.PULL)
     )
 
     def __unicode__(self):
@@ -60,8 +61,9 @@ class User(db.EmbeddedDocument):
 
 
 class Comment(TimeStampedDocument):
+    # CASCADE for deleting all the Comments if a Post is deleted
     parent_post = db.ReferenceField(
-        Post, reverse_delete_rule=db.CASCADE,    # delete all the Comments if a Post is deleted
+        Post, reverse_delete_rule=db.CASCADE,
         required=True
     )
     parent_comment = db.ReferenceField('self')
@@ -69,7 +71,8 @@ class Comment(TimeStampedDocument):
     body = db.StringField(required=True)
 
     def __unicode__(self):
-        return "({user}): {comment}".format(user=self.author.email, comment=self.body)
+        return "({user}): {comment}".format(
+            user=self.author.email, comment=self.body)
 
     meta = {
         'indexes': ['parent_comment'],
