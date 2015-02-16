@@ -42,16 +42,14 @@
             </article>
         </main>
         <nav class="sidebar">
-            <ul class="nav-menu">
+            <ul class="nav-menu" ng-controller="TabController as tab">
                 {% for chapter in chapters %}
-                    <li><a href="#">{{ chapter.title | upper }}</a></li>
+                    <li ng-class="{ active: tab.isSelected( {{ loop.index }} ) }">
+                        <a href ng-click="tab.selectTab( {{ loop.index }} )">
+                            {{ chapter.title | upper }}
+                        </a>
+                    </li>
                 {% endfor %}
-
-{#                <li><a href="#">TITLE PAGE</a></li>#}
-{#                <li class="active"><a href="#">NOTE BOOK</a></li>#}
-{#                <li><a href="#">BLOG</a></li>#}
-{#                <li><a href="#">PROJECTS</a></li>#}
-{#                <li><a href="#">ABOUT ME</a></li>#}
             </ul>
         </nav>
     </div>
