@@ -42,10 +42,10 @@
             </article>
         </main>
         <nav class="sidebar">
-            <ul class="nav-menu" ng-controller="TabController as tab">
+            <ul class="nav-menu" ng-controller="TabController as tabs">
                 {% for chapter in chapters %}
-                    <li ng-class="{ active: tab.isSelected( {{ loop.index }} ) }">
-                        <a href ng-click="tab.selectTab( {{ loop.index }} )">
+                    <li ng-class="{ active: tabs.isSelected( {{ loop.index }} ) }">
+                        <a href ng-click="tabs.selectTab( {{ loop.index }} )">
                             {{ chapter.title | upper }}
                         </a>
                     </li>

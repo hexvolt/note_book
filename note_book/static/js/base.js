@@ -1,1 +1,1 @@
-console.log('core.js loaded');
+console.log('base.js loaded');
