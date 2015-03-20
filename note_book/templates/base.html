@@ -19,21 +19,9 @@
     <div class="wrapper">
 
         <main class="main" ng-controller="TimelineController as timeline">
-            [[ timeline.articles ]]
-            <article>
-                <h2>Article</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
-            </article>
-            <article>
-                <h2>Article</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
-            </article>
-            <article>
-                <h2>Article</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis feugiat quam. Aliquam semper, ligula ut convallis porta, sapien nulla ullamcorper augue, a pharetra odio magna ac est. Donec non turpis sed purus pharetra molestie. Praesent efficitur augue metus, quis rhoncus neque imperdiet vitae. Nam non efficitur tortor, ac lobortis lorem. Maecenas iaculis vel lectus et tempus. Donec eu vulputate diam. Nulla condimentum ante odio, in elementum felis sollicitudin eget.</p>
+            <article ng-repeat="article in timeline.articles">
+                <h2>[[ article.title ]]</h2>
+                <p>[[ article.summary ]]</p>
             </article>
             <article>
                 <h2>Article</h2>

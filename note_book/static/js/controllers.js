@@ -2,10 +2,9 @@
 var app = angular.module("controllers", ['services']);
 
 
-app.controller('TimelineController', function() {
-    this.articles = 'Here will be the articles';
-
-});
+app.controller('TimelineController', [ 'Articles', function(Articles) {
+    this.articles = Articles.currentArticles;
+}]);
 
 
 app.controller('TabController', [ 'Articles', function(Articles) {
@@ -14,9 +13,9 @@ app.controller('TabController', [ 'Articles', function(Articles) {
     tabs.activeTab = 1;
 
     tabs.selectTab = function(tab) {
-        // switch the current chapter (tab) and load appropriate content
+        // switch the current tab and load appropriate articles
         tabs.activeTab = tab;
-        Articles.getArticles(111);
+        Articles.loadArticles(tab);
     };
 
     tabs.isSelected = function(tab) {

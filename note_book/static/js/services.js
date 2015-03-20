@@ -5,14 +5,32 @@ var app = angular.module("services", []);
 // this service will get and handle all the data
 // about articles from backend
 app.factory('Articles', [ '$http', function($http) {
-    // here must be data logic
+    // the data logic only
+    var currentArticles = [
+        { title: "Asss sss" },
+        { title: "Bsss sss" }
+    ];
 
-    function getArticles(chapter) {
-        console.log(chapter);
+    function loadArticles(chapter) {
+        // updates the list of current articles accordingly to filter params
+        var queryParams = {
+            params: {
+                chapter: chapter
+            }
+        };
+        // get the list of appropriate articles from backend
+        $http.get('/articles/', queryParams).success(function(data) {
+            // exchanging
+            currentArticles.length = 0;
+            $.each(data.articles, function( index, article ) {
+                currentArticles.push(article);
+            });
+        });
     }
 
     return {
-        getArticles: getArticles
+        currentArticles: currentArticles,
+        loadArticles: loadArticles
     }
 
 }]);
